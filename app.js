@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 				callback(request.response);
 			}
 		}
-		request.open('POST', './bildhochladenWS.php');
+		request.open('POST', './process.php');
 		request.responseType = 'json';
 		request.send(formData);
 	};
