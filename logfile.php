@@ -22,7 +22,9 @@ error_reporting(0);
  
       //Write error to log file (CSV format) 
       $errfile=fopen("logs/errorlog.csv","a"); 
-      fputs($errfile,"\"$time\",\"$filename: $linenum\",\"($errlevel) $errmsg\""); 
+	   $logziel = array($time,"$filename: $linenum","($errlevel) $errmsg");
+	   array_push($logziel,$ziel);
+	   fputcsv($errfile, $logziel,';','"');
       fclose($errfile);
  
       if($errno!=2 && $errno!=8) {
